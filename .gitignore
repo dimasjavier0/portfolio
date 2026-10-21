@@ -1,0 +1,12 @@
+node_modules
+dist
+*.local
+.wrangler
+# CV contains personal data (ID number, birth date, phone) — keep it out of the public repo
+*.pdf
+# Raw design sources (optimized copies live in public/img)
+/*.png
+/*.jpg
+*.tsbuildinfo
+# Profile README is published to the dimasjavier0/dimasjavier0 repo, not here
+github-profile/
