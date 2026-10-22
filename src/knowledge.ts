@@ -1,5 +1,6 @@
 import { certifications, education, experience, profile, projects, skillGroups, ui } from './content'
 import { curatedAnswers } from './chatKnowledge'
+import aboutMe from './about-me.md'
 
 // Plain-text fact sheet that the AI chat (worker/chat.ts) is allowed to answer from.
 // Built from the same data the site renders, so editing content.ts updates both.
@@ -56,6 +57,13 @@ export function buildKnowledge(): string {
 
   section('Extra facts')
   lines.push(...curatedAnswers('en'))
+
+  // Optional notes pasted from ChatGPT (checked for private data by scripts/check-about-me.mjs)
+  const notes = aboutMe.replace(/<!--[\s\S]*?-->/g, '').trim()
+  if (notes) {
+    section('Additional notes (lower priority than the sections above)')
+    lines.push(notes)
+  }
 
   return lines.join('\n').trim()
 }

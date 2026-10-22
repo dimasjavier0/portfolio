@@ -33,6 +33,8 @@ npm run preview:full  # site + /api/chat locally via wrangler (needs `npx wrangl
 
 All text lives in `src/content.ts` (both languages). Rule-based chat answers live in `src/chatKnowledge.ts`. The AI chat's fact sheet is generated from both files by `src/knowledge.ts`, so it stays in sync automatically; its system prompt and guardrails are in `worker/chat.ts`.
 
+Extra notes for the AI (for example, a summary exported from ChatGPT) go in `src/about-me.md`: English, `###` headings, short bullets. Everything in it is public. `npm run build` runs `scripts/check-about-me.mjs` first and fails if the file contains phone numbers, ID numbers, other email addresses, birth dates or age, addresses, salary, passwords/keys, or more than 6,000 characters — so a bad paste never deploys.
+
 ## Deployment (Cloudflare Workers Builds)
 
 The Worker `portfolio` is connected to this repo: every push to `main` builds and deploys to https://portfolio.dimasjavier-0.workers.dev
