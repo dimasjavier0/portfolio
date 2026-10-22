@@ -13,7 +13,7 @@ const t = {
   bubble: { en: 'Ask me about Dimas 👋', es: 'Pregúntame sobre Dimas 👋' },
   open: { en: 'Ask about Dimas Rodríguez', es: 'Preguntar sobre Dimas Rodríguez' },
   close: { en: 'Close chat', es: 'Cerrar chat' },
-  note: { en: 'Automated assistant · answers are based on his resume.', es: 'Asistente automático · respuestas basadas en su CV.' },
+  note: { en: 'AI assistant · answers are based on his resume.', es: 'Asistente con IA · respuestas basadas en su CV.' },
 }
 
 export function Chat({ lang }: { lang: Lang }) {
@@ -39,6 +39,7 @@ export function Chat({ lang }: { lang: Lang }) {
     return () => window.removeEventListener('keydown', onKey)
   }, [])
 
+  // suggestion chips: instant canned answer (free, no AI call)
   const ask = (question: string, reply: string) => {
     if (typing) return
     setMsgs(m => [...m, { from: 'user', text: question }])
@@ -49,12 +50,38 @@ export function Chat({ lang }: { lang: Lang }) {
     }, 650)
   }
 
+  // free text: AI answer from /api/chat, falling back to the rule-based answer
+  const askAI = async (question: string) => {
+    if (typing) return
+    const history = [...msgs, { from: 'user', text: question } as Msg]
+    setMsgs(history)
+    setTyping(true)
+    let reply: string
+    try {
+      const res = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          lang,
+          messages: history.map(m => ({ role: m.from === 'user' ? 'user' : 'assistant', content: m.text })),
+        }),
+        signal: AbortSignal.timeout(20000),
+      })
+      const data = res.ok ? ((await res.json()) as { reply?: string }) : {}
+      reply = data.reply || answer(question, lang)
+    } catch {
+      reply = answer(question, lang)
+    }
+    setMsgs(m => [...m, { from: 'bot', text: reply }])
+    setTyping(false)
+  }
+
   const submit = (e: React.FormEvent) => {
     e.preventDefault()
     const q = input.trim()
     if (!q) return
     setInput('')
-    ask(q, answer(q, lang))
+    void askAI(q)
   }
 
   return (
@@ -64,7 +91,9 @@ export function Chat({ lang }: { lang: Lang }) {
           <header className="chat-header">
             <span className="chat-avatar small">DR</span>
             <div>
-              <strong>{t.title[lang]}</strong>
+              <strong>
+                {t.title[lang]} <span className="ai-badge">AI</span>
+              </strong>
               <small>{t.subtitle[lang]}</small>
             </div>
             <button className="icon-btn" onClick={() => setOpen(false)} aria-label={t.close[lang]}>

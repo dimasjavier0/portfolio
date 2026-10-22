@@ -1437,6 +1437,19 @@ ul.plain {
   color: var(--text-muted);
 }
 
+.ai-badge {
+  display: inline-block;
+  margin-left: 4px;
+  padding: 1px 6px;
+  border-radius: 6px;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #fff;
+  background: var(--grad-btn);
+  vertical-align: middle;
+}
+
 .chat-body {
   flex: 1;
   overflow-y: auto;
@@ -1452,6 +1465,8 @@ ul.plain {
   border-radius: 14px;
   font-size: 0.9rem;
   line-height: 1.5;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
   animation: msg-in 0.25s ease both;
 }
 
