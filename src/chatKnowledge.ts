@@ -30,8 +30,8 @@ const intents: Intent[] = [
     id: 'cloud',
     keywords: ['aws', 'cloud', 'nube', 'lambda', 's3', 'ec2', 'gateway', 'serverless', 'cloudflare', 'deploy', 'despliegue', 'desplegar'],
     answer: {
-      en: 'During his supervised professional practice at Sumadi (Feb–Jun 2025), Dimas deployed services on AWS, configuring EC2, S3, Lambda, and API Gateway for serverless architectures. He also publishes static sites with Cloudflare Pages (including this portfolio) and keeps learning cloud best practices.',
-      es: 'Durante su práctica profesional supervisada en Sumadi (feb–jun 2025), Dimas desplegó servicios en AWS configurando EC2, S3, Lambda y API Gateway para arquitecturas serverless. También publica sitios estáticos con Cloudflare Pages (incluido este portfolio) y sigue aprendiendo buenas prácticas de cloud.',
+      en: 'During his supervised professional practice at Sumadi (Feb–Jun 2025), Dimas deployed services on AWS, configuring EC2, S3, Lambda, and API Gateway for serverless architectures. He also publishes websites on Cloudflare Pages and Workers (this portfolio runs on a Worker with Workers AI) and keeps learning cloud best practices.',
+      es: 'Durante su práctica profesional supervisada en Sumadi (feb–jun 2025), Dimas desplegó servicios en AWS configurando EC2, S3, Lambda y API Gateway para arquitecturas serverless. También publica sitios web en Cloudflare Pages y Workers (este portfolio corre en un Worker con Workers AI) y sigue aprendiendo buenas prácticas de cloud.',
     },
   },
   {

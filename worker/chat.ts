@@ -1,11 +1,7 @@
-import { buildKnowledge } from '../../src/knowledge'
+import { buildKnowledge } from '../src/knowledge'
 
 // POST /api/chat — answers questions about Dimas with Workers AI (free tier: 10,000 neurons/day).
 // On the Free plan an exhausted quota just errors, so this can never generate a bill.
-
-interface Env {
-  AI: Ai
-}
 
 type Turn = { role: 'user' | 'assistant'; content: string }
 
@@ -47,7 +43,7 @@ function parseBody(body: unknown): { messages: Turn[]; lang: 'en' | 'es' } | nul
   return { messages: turns, lang: lang === 'es' ? 'es' : 'en' }
 }
 
-export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
+export async function handleChat(request: Request, env: { AI: Ai }): Promise<Response> {
   let parsed: ReturnType<typeof parseBody>
   try {
     parsed = parseBody(await request.json())

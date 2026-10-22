@@ -1,7 +1,18 @@
-name = "dimas-portfolio"
+# Must match the Worker name in the Cloudflare dashboard (Workers Builds checks it)
+name = "portfolio"
+main = "worker/index.ts"
 compatibility_date = "2026-10-01"
-pages_build_output_dir = "./dist"
 
-# Workers AI — used by functions/api/chat.ts (free tier, no API key needed)
+# Static site built by Vite; /api/* goes to the Worker before the assets
+[assets]
+directory = "./dist"
+binding = "ASSETS"
+not_found_handling = "single-page-application"
+run_worker_first = ["/api/*"]
+
+# Workers AI — used by worker/chat.ts (free tier, no API key needed)
 [ai]
 binding = "AI"
+
+[observability]
+enabled = true

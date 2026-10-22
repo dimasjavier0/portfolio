@@ -313,8 +313,8 @@ export const projects: Project[] = [
     status: { en: 'Live', es: 'Publicado' },
     statusKind: 'done',
     summary: {
-      en: 'Design, build, and deployment of static websites with Cloudflare Pages — including this portfolio.',
-      es: 'Diseño, construcción y despliegue de sitios estáticos con Cloudflare Pages — incluido este portfolio.',
+      en: 'Design, build, and deployment of websites on Cloudflare Pages and Workers — including this portfolio, served by a Worker with an AI chat.',
+      es: 'Diseño, construcción y despliegue de sitios web en Cloudflare Pages y Workers — incluido este portfolio, servido por un Worker con chat de IA.',
     },
     role: {
       en: 'Deployment setup, version control, and the path from development to production.',

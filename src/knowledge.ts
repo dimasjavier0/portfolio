@@ -1,7 +1,7 @@
 import { certifications, education, experience, profile, projects, skillGroups, ui } from './content'
 import { curatedAnswers } from './chatKnowledge'
 
-// Plain-text fact sheet that the AI chat (functions/api/chat.ts) is allowed to answer from.
+// Plain-text fact sheet that the AI chat (worker/chat.ts) is allowed to answer from.
 // Built from the same data the site renders, so editing content.ts updates both.
 export function buildKnowledge(): string {
   const lines: string[] = []

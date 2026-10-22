@@ -2,7 +2,7 @@
 
 Personal portfolio of **Dimas Javier Rodríguez Cabrera**, Software Developer.
 
-Built with **React + TypeScript + Vite**, plain CSS (custom properties for dark/light themes), and deployed on **Cloudflare Pages**.
+Built with **React + TypeScript + Vite**, plain CSS (custom properties for dark/light themes), and deployed as a **Cloudflare Worker** with static assets.
 Colors and typography follow the AutoMarket brand manual (aqua `#129FB1`, fuchsia `#C5299B`, navy `#001A70`; Open Sans + Roboto).
 
 ## Features
@@ -23,7 +23,7 @@ Colors and typography follow the AutoMarket brand manual (aqua `#129FB1`, fuchsi
 ```bash
 npm install
 npm run dev      # local server
-npm run build    # production build in dist/ (also type-checks functions/)
+npm run build    # production build in dist/ (also type-checks worker/)
 npm run preview:full  # site + /api/chat locally via wrangler (needs `npx wrangler login`; uses real Workers AI quota)
 ```
 
@@ -31,13 +31,15 @@ npm run preview:full  # site + /api/chat locally via wrangler (needs `npx wrangl
 
 ## Editing content
 
-All text lives in `src/content.ts` (both languages). Rule-based chat answers live in `src/chatKnowledge.ts`. The AI chat's fact sheet is generated from both files by `src/knowledge.ts`, so it stays in sync automatically; its system prompt and guardrails are in `functions/api/chat.ts`.
+All text lives in `src/content.ts` (both languages). Rule-based chat answers live in `src/chatKnowledge.ts`. The AI chat's fact sheet is generated from both files by `src/knowledge.ts`, so it stays in sync automatically; its system prompt and guardrails are in `worker/chat.ts`.
 
-## Deployment (Cloudflare Pages)
+## Deployment (Cloudflare Workers Builds)
+
+The Worker `portfolio` is connected to this repo: every push to `main` builds and deploys to https://portfolio.dimasjavier-0.workers.dev
 
 - Build command: `npm run build`
-- Output directory: `dist`
-- Workers AI binding `AI` is declared in `wrangler.toml` (if the dashboard does not pick it up: Settings → Bindings → Workers AI → name `AI`, then redeploy)
+- Deploy command: `npx wrangler deploy`
+- `wrangler.toml`: `name` must match the Worker name in the dashboard; `[assets]` serves `dist/` and sends `/api/*` to `worker/index.ts` first; `[ai]` declares the Workers AI binding
 - On the Workers Free plan the AI quota is 10,000 neurons/day (~100+ chat answers); when it runs out, requests fail and the chat falls back to rule-based answers — it never generates charges
 
 Technology logos from [Devicon](https://devicon.dev/) (MIT).
