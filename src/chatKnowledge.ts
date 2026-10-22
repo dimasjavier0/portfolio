@@ -129,6 +129,11 @@ const hello: Record<Lang, string> = {
   es: '¡Hola! 👋 Soy el asistente de Dimas. Pregúntame sobre su experiencia, habilidades o proyectos.',
 }
 
+// Hand-written answers, reused as extra facts for the AI chat (src/knowledge.ts)
+export function curatedAnswers(lang: Lang): string[] {
+  return intents.map(i => i.answer[lang])
+}
+
 export function answerFor(intentId: string, lang: Lang): string {
   return intents.find(i => i.id === intentId)?.answer[lang] ?? fallback[lang]
 }

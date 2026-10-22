@@ -1,0 +1,7 @@
+name = "dimas-portfolio"
+compatibility_date = "2026-10-01"
+pages_build_output_dir = "./dist"
+
+# Workers AI — used by functions/api/chat.ts (free tier, no API key needed)
+[ai]
+binding = "AI"

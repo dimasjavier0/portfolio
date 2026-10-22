@@ -10,3 +10,4 @@ dist
 *.tsbuildinfo
 # Profile README is published to the dimasjavier0/dimasjavier0 repo, not here
 github-profile/
+.dev.vars
