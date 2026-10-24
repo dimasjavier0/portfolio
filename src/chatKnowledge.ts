@@ -117,10 +117,10 @@ const intents: Intent[] = [
   },
   {
     id: 'fun',
-    keywords: ['hobby', 'hobbies', 'fun', 'free time', 'game', 'music', 'movie', 'dog', 'pet', 'personality', 'challenge', 'pasatiempo', 'diversión', 'tiempo libre', 'juego', 'música', 'musica', 'película', 'perro', 'mascota', 'personalidad', 'reto'],
+    keywords: ['hobby', 'hobbies', 'fun', 'free time', 'game', 'music', 'boxing', 'dog', 'tobi', 'toreto', 'pet', 'personality', 'challenge', 'pasatiempo', 'diversión', 'tiempo libre', 'juego', 'música', 'musica', 'boxeo', 'perro', 'mascota', 'personalidad', 'reto'],
     answer: {
-      en: "Dimas is a cheerful, positive guy 😄 who loves a good challenge 🧩. In his free time he plays video games 🎮, watches series and movies 🎬, listens to music 🎧 and hangs out with friends and his dog 🐶. His motto: \"Don't be afraid to fail. Be afraid of not trying.\"",
-      es: 'Dimas es alegre y positivo 😄 y le encantan los retos 🧩. En su tiempo libre juega videojuegos 🎮, ve series y películas 🎬, escucha música 🎧 y pasa tiempo con sus amigos y su perro 🐶. Su lema: "No tengas miedo de fallar, ten miedo de no intentarlo."',
+      en: "Dimas is a cheerful, positive guy 😄 who loves a good challenge 🧩. In his free time he boxes 🥊, plays video games 🎮, listens to music 🎧, meets new people and hangs out with his dogs Tobi and Toreto 🐶. His motto: \"Don't be afraid to fail. Be afraid of not trying.\"",
+      es: 'Dimas es alegre y positivo 😄 y le encantan los retos 🧩. En su tiempo libre boxea 🥊, juega videojuegos 🎮, escucha música 🎧, conoce gente nueva y pasa tiempo con sus perros Tobi y Toreto 🐶. Su lema: "No tengas miedo de fallar, ten miedo de no intentarlo."',
     },
   },
 ]

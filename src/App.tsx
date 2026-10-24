@@ -542,7 +542,14 @@ export default function App() {
                 <p>“{ui.fun.quote[lang]}”</p>
               </blockquote>
               <article className="card pet reveal">
-                <img src="/img/pet.webp" alt={ui.fun.petAlt[lang]} loading="lazy" width={140} height={140} />
+                <div className="pet-photos">
+                  {ui.fun.pets.map(p => (
+                    <figure key={p.name}>
+                      <img src={p.src} alt={p.alt[lang]} loading="lazy" width={120} height={120} />
+                      <figcaption>{p.name}</figcaption>
+                    </figure>
+                  ))}
+                </div>
                 <div>
                   <h3>{ui.fun.petTitle[lang]}</h3>
                   <p>{ui.fun.petText[lang]}</p>
@@ -552,7 +559,8 @@ export default function App() {
                 <h3>{ui.fun.itemsTitle[lang]}</h3>
                 <ul>
                   {ui.fun.items.map(it => (
-                    <li key={it.en}>
+                    <li key={it.en} className={it.photo ? 'has-photo' : undefined}>
+                      {it.photo && <img src={it.photo} alt={it.photoAlt?.[lang] ?? ''} loading="lazy" width={478} height={330} />}
                       <span className="emoji" aria-hidden="true">{it.emoji}</span>
                       {it[lang]}
                     </li>

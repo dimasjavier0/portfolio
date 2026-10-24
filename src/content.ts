@@ -32,11 +32,11 @@ export const ui = {
     intro: {
       en: [
         "I'm Dimas 😄, a Systems Engineer from Honduras 🌎. I like building things people actually use, and I never say no to a good challenge 🧩.",
-        "Most of my work is web apps and APIs 🛠️. When I'm not coding, I'm probably gaming 🎮, listening to music 🎧 or hanging out with my dog 🐶.",
+        "Most of my work is web apps and APIs 🛠️. When I'm not coding, I'm probably gaming 🎮, listening to music 🎧, boxing 🥊 or hanging out with my dogs 🐶.",
       ],
       es: [
         'Soy Dimas 😄, Ingeniero en Sistemas de Honduras 🌎. Me gusta construir cosas que la gente use de verdad y nunca le digo que no a un buen reto 🧩.',
-        'Casi siempre estoy haciendo aplicaciones web y APIs 🛠️. Cuando no estoy programando, seguro me encuentras jugando 🎮, escuchando música 🎧 o con mi perro 🐶.',
+        'Casi siempre estoy haciendo aplicaciones web y APIs 🛠️. Cuando no estoy programando, seguro me encuentras jugando 🎮, escuchando música 🎧, boxeando 🥊 o con mis perros 🐶.',
       ],
     },
     ctaPrimary: { en: 'See my experience 👀', es: 'Ver mi experiencia 👀' },
@@ -72,22 +72,32 @@ export const ui = {
       es: 'No tengas miedo de fallar, ten miedo de no intentarlo.',
     },
     quoteLabel: { en: 'My motto', es: 'Mi lema' },
-    petTitle: { en: 'My co-pilot 🐶', es: 'Mi copiloto 🐶' },
+    petTitle: { en: 'My co-pilots 🐶', es: 'Mis copilotos 🐶' },
     petText: {
-      en: "Official debugging supervisor. He's never approved a merge without a snack.",
-      es: 'Supervisor oficial de debugging. Nunca ha aprobado un merge sin una galleta.',
+      en: "Tobi and Toreto, official debugging supervisors. They've never approved a merge without a snack.",
+      es: 'Tobi y Toreto, supervisores oficiales de debugging. Nunca han aprobado un merge sin una galleta.',
     },
-    petAlt: { en: "Dimas's dog", es: 'El perro de Dimas' },
+    pets: [
+      { name: 'Tobi', src: '/img/tobi.webp', alt: { en: "Tobi, Dimas's white dog", es: 'Tobi, el perro blanco de Dimas' } },
+      { name: 'Toreto', src: '/img/toreto.webp', alt: { en: "Toreto, Dimas's brown and white dog", es: 'Toreto, el perro café y blanco de Dimas' } },
+    ],
     items: [
       { emoji: '🎮', en: 'Video games', es: 'Videojuegos' },
-      { emoji: '🎬', en: 'Series & movies', es: 'Series y películas' },
       { emoji: '🎧', en: 'Music', es: 'Música' },
-      { emoji: '🤝', en: 'Friends', es: 'Amigos' },
+      { emoji: '🤝', en: 'Meeting new people and networking', es: 'Conocer gente nueva y hacer networking' },
       { emoji: '🧩', en: 'A good challenge', es: 'Un buen reto' },
-      { emoji: '📚', en: 'Learning new tech', es: 'Aprender tecnología' },
+      { emoji: '📚', en: 'Learning new things', es: 'Aprender cosas nuevas' },
       { emoji: '🎨', en: 'Graphic design', es: 'Diseño gráfico' },
-    ],
-    itemsTitle: { en: 'Things that make me happy', es: 'Cosas que me alegran' },
+      // last item fills the whole row, so it carries the photo
+      {
+        emoji: '🥊',
+        en: 'Boxing',
+        es: 'Boxeo',
+        photo: '/img/boxing.webp',
+        photoAlt: { en: 'Dimas in the ring at a boxing match', es: 'Dimas en el ring en una pelea de boxeo' },
+      },
+    ] as { emoji: string; en: string; es: string; photo?: string; photoAlt?: Bi }[],
+    itemsTitle: { en: 'Things I like', es: 'Cosas que me gustan' },
   },
   about: {
     title: { en: 'About Me 🙋‍♂️', es: 'Sobre mí 🙋‍♂️' },

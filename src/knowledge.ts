@@ -62,7 +62,7 @@ export function buildKnowledge(): string {
   lines.push(ui.fun.subtitle.en)
   lines.push(`Hobbies: ${ui.fun.items.map(i => i.en).join(', ')}`)
   lines.push(`Motto: "${ui.fun.quote.en}"`)
-  lines.push(`He has a dog, jokingly called his "${ui.fun.petTitle.en.replace(/[^\w\s-]/g, '').trim()}": ${ui.fun.petText.en}`)
+  lines.push(`He has two dogs, ${ui.fun.pets.map(p => p.name).join(' and ')}, jokingly called his "co-pilots": ${ui.fun.petText.en}`)
 
   section('Extra facts')
   lines.push(...curatedAnswers('en'))
