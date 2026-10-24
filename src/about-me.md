@@ -37,8 +37,8 @@
 - The project has reached a functional MVP stage.
 - The project aims to make vocabulary learning more contextual and engaging.
 
-#### CONCAPAN Event Website
-- Dimas contributed to the development of the website for the CONCAPAN event in Honduras through an IEEE-related project.
+#### CONESCAPAN 2025 Website
+- Dimas contributed to the website for CONESCAPAN 2025, the IEEE Central America and Panama Student Conference held in Tegucigalpa in September 2025.
 - His contribution involved website development.
 - The specific technology stack and measurable outcomes have not been established.
 
@@ -55,7 +55,7 @@
 ### Leadership and Volunteering
 - Dimas served as president of the Computer Society student chapter at the Universidad Nacional Autónoma de Honduras (UNAH).
 - He participated in student leadership and technology-related activities within the university community.
-- He contributed to an IEEE-related website development project for CONCAPAN.
+- He contributed to the IEEE website project for CONESCAPAN 2025.
 - He volunteered as a schoolteacher at Escuela La Roca for one year.
 
 ### Education and Professional Development
@@ -64,12 +64,13 @@
 - He has intermediate-level proficiency in Adobe Photoshop and basic-level skills in Adobe Illustrator.
 - He completed the following courses:
   - Programming Logic (JavaScript).
-  - Python Fundamentals — Cisco Networking Academy.
-  - Effective Leadership — HPLIFE.
-  - Effective Business Websites — HPLIFE.
-  - Customer Relationship Management (CRM) — HPLIFE.
-  - Strategic Planning — HPLIFE.
-  - Business Communication — HPLIFE.
+  - Python Essentials 1, Cisco Networking Academy (Credly badge).
+  - CCNA: Introduction to Networks, Cisco Networking Academy (Credly badge).
+  - Effective Leadership, HPLIFE.
+  - Effective Business Websites, HPLIFE.
+  - Customer Relationship Management (CRM), HPLIFE.
+  - Strategic Planning, HPLIFE.
+  - Business Communication, HPLIFE.
 
 ### Working Style and Learning
 - Dimas values teamwork, effective communication, leadership, problem-solving, decision-making, and time management.

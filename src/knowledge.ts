@@ -26,8 +26,13 @@ export function buildKnowledge(): string {
 
   section('Experience')
   for (const e of experience) {
-    lines.push(`- ${e.role.en} at ${e.org} (${e.period.en}, ${e.kind.en})`)
+    lines.push(`- ${e.role.en} at ${e.org}${e.team ? `, ${e.team.en}` : ''} (${e.period.en}, ${e.kind.en})`)
     for (const b of e.bullets.en) lines.push(`  * ${b}`)
+    for (const p of e.projects ?? []) {
+      lines.push(`  Project: ${p.title.en}`)
+      for (const d of p.did.en) lines.push(`    - Did: ${d}`)
+      for (const i of p.impact.en) lines.push(`    - Impact: ${i}`)
+    }
     if (e.tags) lines.push(`  Tech: ${e.tags.join(', ')}`)
   }
 
@@ -47,7 +52,11 @@ export function buildKnowledge(): string {
   section('Education')
   for (const e of education) lines.push(`- ${e.degree.en}, ${e.school}${e.period ? ` (${e.period})` : ''}`)
   lines.push('Certifications:')
-  for (const c of certifications) lines.push(`- ${c.name.en} — ${c.issuer}`)
+  for (const c of certifications) lines.push(`- ${c.name.en}, by ${c.issuer}${c.url ? ` (credential: ${c.url})` : ''}`)
+
+  section('Services for small businesses')
+  lines.push(`In his own words: ${ui.business.text.en}`)
+  lines.push(`Offers: ${ui.business.items.map(i => i.en).join(', ')}`)
 
   section('Personal')
   lines.push(ui.fun.subtitle.en)

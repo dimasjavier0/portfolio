@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import {
   certifications,
+  certTagEs,
   education,
   experience,
   profile,
@@ -125,14 +126,26 @@ export default function App() {
           </a>
 
           <nav className={`nav-links ${menuOpen ? 'open' : ''}`} aria-label="Main">
-            {sections.map(id => (
-              <a key={id} href={`#${id}`} onClick={go(id)} className={active === id ? 'active' : ''}>
-                {ui.nav[id][lang]}
-              </a>
-            ))}
+            {/* contact lives in the highlighted button next to the toggles instead */}
+            {sections
+              .filter(id => id !== 'contact')
+              .map(id => (
+                <a key={id} href={`#${id}`} onClick={go(id)} className={active === id ? 'active' : ''}>
+                  {ui.nav[id][lang]}
+                </a>
+              ))}
           </nav>
 
           <div className="nav-actions">
+            <a
+              href="#contact"
+              className={`nav-cta ${active === 'contact' ? 'active' : ''}`}
+              onClick={go('contact')}
+              aria-label={ui.navContact[lang]}
+            >
+              <Icon name="mail" size={16} />
+              <span>{ui.navContact[lang]}</span>
+            </a>
             <button
               className="lang-btn"
               onClick={() => setLang(lang === 'en' ? 'es' : 'en')}
@@ -233,6 +246,31 @@ export default function App() {
           </a>
         </section>
 
+        {/* BUSINESS BANNER */}
+        <section className="biz" aria-labelledby="biz-title">
+          <div className="container">
+            <div className="biz-card reveal">
+              <div className="biz-copy">
+                <h2 id="biz-title">{ui.business.title[lang]}</h2>
+                <p>{ui.business.text[lang]}</p>
+                <ul className="biz-items">
+                  {ui.business.items.map(it => (
+                    <li key={it.en}>
+                      <Icon name={it.icon} size={16} /> {it[lang]}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <a
+                href={`mailto:${profile.email}?subject=${encodeURIComponent(ui.business.subject[lang])}`}
+                className="btn primary biz-btn"
+              >
+                <Icon name="mail" /> {ui.business.button[lang]}
+              </a>
+            </div>
+          </div>
+        </section>
+
         {/* ABOUT */}
         <section id="about" className="section">
           <div className="container">
@@ -287,6 +325,7 @@ export default function App() {
                       <div>
                         <h3>{x.role[lang]}</h3>
                         <p className="exp-org">{x.org}</p>
+                        {x.team && <p className="exp-team">{x.team[lang]}</p>}
                       </div>
                       <div className="exp-meta">
                         <span className="period">{x.period[lang]}</span>
@@ -298,6 +337,28 @@ export default function App() {
                         <li key={b}>{b}</li>
                       ))}
                     </ul>
+                    {x.projects && (
+                      <details className="exp-details">
+                        <summary>{ui.experience.details[lang]}</summary>
+                        {x.projects.map(p => (
+                          <div key={p.title.en} className="exp-project">
+                            <h4>{p.title[lang]}</h4>
+                            <p className="exp-label">{ui.experience.did[lang]}</p>
+                            <ul className="bullets">
+                              {p.did[lang].map(d => (
+                                <li key={d}>{d}</li>
+                              ))}
+                            </ul>
+                            <p className="exp-label">{ui.experience.impact[lang]}</p>
+                            <ul className="bullets impact">
+                              {p.impact[lang].map(d => (
+                                <li key={d}>{d}</li>
+                              ))}
+                            </ul>
+                          </div>
+                        ))}
+                      </details>
+                    )}
                     {x.tags && (
                       <div className="tags">
                         {x.tags.map(tg => (
@@ -431,13 +492,40 @@ export default function App() {
               <Icon name="award" /> {ui.education.certTitle[lang]}
             </h3>
             <div className="cert-grid">
-              {certifications.map(c => (
-                <article key={c.name.en} className="card cert reveal">
-                  <span className="cert-issuer">{c.issuer}</span>
-                  <h4>{c.name[lang]}</h4>
-                  <span className="tag small">{c.tag}</span>
-                </article>
-              ))}
+              {certifications.map(c => {
+                const body = (
+                  <>
+                    <div className="cert-top">
+                      {c.logo ? (
+                        <img src={c.logo} alt="" className="cert-logo" loading="lazy" width={48} height={48} />
+                      ) : (
+                        <span className="cert-logo mono" aria-hidden="true">
+                          {c.issuer.split(' ').slice(0, 2).map(w => w[0]).join('')}
+                        </span>
+                      )}
+                      <span className="cert-issuer">{c.issuer}</span>
+                    </div>
+                    <h4>{c.name[lang]}</h4>
+                    <div className="cert-foot">
+                      <span className="tag small">{lang === 'es' ? certTagEs[c.tag] ?? c.tag : c.tag}</span>
+                      {c.url && (
+                        <span className="cert-link">
+                          {ui.education.credential[lang]} <Icon name="external" size={14} />
+                        </span>
+                      )}
+                    </div>
+                  </>
+                )
+                return c.url ? (
+                  <a key={c.name.en} href={c.url} target="_blank" rel="noopener noreferrer" className="card cert linked reveal">
+                    {body}
+                  </a>
+                ) : (
+                  <article key={c.name.en} className="card cert reveal">
+                    {body}
+                  </article>
+                )
+              })}
             </div>
           </div>
         </section>

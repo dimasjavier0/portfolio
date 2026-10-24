@@ -35,6 +35,16 @@ All text lives in `src/content.ts` (both languages). Rule-based chat answers liv
 
 Extra notes for the AI (for example, a summary exported from ChatGPT) go in `src/about-me.md`: English, `###` headings, short bullets. Everything in it is public. `npm run build` runs `scripts/check-about-me.mjs` first and fails if the file contains phone numbers, ID numbers, other email addresses, birth dates or age, addresses, salary, passwords/keys, or more than 6,000 characters — so a bad paste never deploys.
 
+## CI/CD
+
+Continuous deployment is on: Cloudflare Workers Builds watches `main` on this repo. Every push runs, in order:
+
+1. `npm ci` (clean install from `package-lock.json`)
+2. `npm run build`: `scripts/check-about-me.mjs` (privacy check), `tsc -b` and `tsc -p worker` (type checks), `vite build`
+3. `npx wrangler deploy`: uploads `dist/` as static assets and the Worker in `worker/`
+
+If any step fails the deploy stops and the previous version stays live. Logs and rollbacks are in the Cloudflare dashboard under Workers & Pages → `portfolio` → Deployments. There are no automated tests in the pipeline yet; the checks are the privacy scan and the type checks.
+
 ## Deployment (Cloudflare Workers Builds)
 
 The Worker `portfolio` is connected to this repo: every push to `main` builds and deploys to https://portfolio.dimasjavier-0.workers.dev
