@@ -32,11 +32,11 @@ export const ui = {
     intro: {
       en: [
         "I'm Dimas 😄, a Systems Engineer from Honduras 🌎. I like building things people actually use, and I never say no to a good challenge 🧩.",
-        "Most of my work is web apps and APIs 🛠️. When I'm not coding, I'm probably gaming 🎮, listening to music 🎧, training 🥊 or hanging out with my dogs 🐶.",
+        "Most of my work is web apps and APIs 🛠️. When I'm not coding, I'm probably learning something new 🧠, reading 📚, training 🥊 or hanging out with my dogs 🐶.",
       ],
       es: [
         'Soy Dimas 😄, Ingeniero en Sistemas de Honduras 🌎. Me gusta construir cosas que la gente use de verdad y nunca le digo que no a un buen reto 🧩.',
-        'Casi siempre estoy haciendo aplicaciones web y APIs 🛠️. Cuando no estoy programando, seguro me encuentras jugando 🎮, escuchando música 🎧, entrenando 🥊 o con mis perros 🐶.',
+        'Casi siempre estoy haciendo aplicaciones web y APIs 🛠️. Cuando no estoy programando, seguro me encuentras aprendiendo cosas nuevas 🧠, leyendo 📚, entrenando 🥊, escuchando música 🎧 o con mis perros 🐶.',
       ],
     },
     ctaPrimary: { en: 'See my experience 👀', es: 'Ver mi experiencia 👀' },
@@ -84,7 +84,7 @@ export const ui = {
     items: [
       { emoji: '🎮', en: 'Video games', es: 'Videojuegos' },
       { emoji: '🎧', en: 'Music', es: 'Música' },
-      { emoji: '🤝', en: 'Meeting new people and networking', es: 'Conocer gente nueva y hacer networking' },
+      { emoji: '🤝', en: 'Meeting new people', es: 'Conocer gente nueva' },
       { emoji: '🧩', en: 'A good challenge', es: 'Un buen reto' },
       { emoji: '📚', en: 'Learning new things', es: 'Aprender cosas nuevas' },
       { emoji: '🎨', en: 'Graphic design', es: 'Diseño gráfico' },
@@ -435,8 +435,8 @@ export const projects: Project[] = [
       es: 'Sitio web de CONESCAPAN 2025, la conferencia estudiantil de IEEE para Centroamérica y Panamá, que se hizo en Tegucigalpa en septiembre de 2025.',
     },
     role: {
-      en: 'I was part of the IEEE student team that built the event site.',
-      es: 'Formé parte del equipo estudiantil de IEEE que hizo el sitio del evento.',
+      en: 'I was part of the IEEE team that built the event site.',
+      es: 'Formé parte del equipo IEEE que hizo el sitio del evento.',
     },
     stack: ['HTML', 'CSS', 'JavaScript'],
     link: 'https://conescapanhn.com/',
