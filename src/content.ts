@@ -32,11 +32,11 @@ export const ui = {
     intro: {
       en: [
         "I'm Dimas 😄, a Systems Engineer from Honduras 🌎. I like building things people actually use, and I never say no to a good challenge 🧩.",
-        "Most of my work is web apps and APIs 🛠️. When I'm not coding, I'm probably gaming 🎮, listening to music 🎧, boxing 🥊 or hanging out with my dogs 🐶.",
+        "Most of my work is web apps and APIs 🛠️. When I'm not coding, I'm probably gaming 🎮, listening to music 🎧, training 🥊 or hanging out with my dogs 🐶.",
       ],
       es: [
         'Soy Dimas 😄, Ingeniero en Sistemas de Honduras 🌎. Me gusta construir cosas que la gente use de verdad y nunca le digo que no a un buen reto 🧩.',
-        'Casi siempre estoy haciendo aplicaciones web y APIs 🛠️. Cuando no estoy programando, seguro me encuentras jugando 🎮, escuchando música 🎧, boxeando 🥊 o con mis perros 🐶.',
+        'Casi siempre estoy haciendo aplicaciones web y APIs 🛠️. Cuando no estoy programando, seguro me encuentras jugando 🎮, escuchando música 🎧, entrenando 🥊 o con mis perros 🐶.',
       ],
     },
     ctaPrimary: { en: 'See my experience 👀', es: 'Ver mi experiencia 👀' },
